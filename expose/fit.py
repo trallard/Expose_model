@@ -76,7 +76,7 @@ the configuration file, to load a dataset to train a model with, and
 persist it.
 
 Usage:
-  pld-fit [options]
+  expose-fit [options]
 
 Options:
   -n --no-save              Don't persist the fitted model to disk.
@@ -124,15 +124,15 @@ def admin_cmd(argv=sys.argv[1:]):  # pragma: no cover
 Activate or delete models.
 
 Models are usually made active right after fitting (see command
-pld-fit).  The 'activate' command allows you to explicitly set the
-currently active model.  Use 'pld-list' to get an overview of all
+expose-fit).  The 'activate' command allows you to explicitly set the
+currently active model.  Use 'expose-list' to get an overview of all
 available models along with their version identifiers.
 
 Deleting a model will simply remove it from the database.
 
 Usage:
-  pld-admin activate <version> [options]
-  pld-admin delete <version> [options]
+  expose-admin activate <version> [options]
+  expose-admin delete <version> [options]
 
 Options:
   -h --help                 Show this screen.
@@ -189,7 +189,7 @@ configuration to load a training dataset, and run a grid search on the
 model using the grid of hyperparameters.
 
 Usage:
-  pld-grid-search [options]
+  expose-grid-search [options]
 
 Options:
   -h --help                Show this screen.

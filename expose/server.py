@@ -277,7 +277,7 @@ def devserver_cmd(argv=sys.argv[1:]):  # pragma: no cover
 Serve the web API for development.
 
 Usage:
-  pld-devserver [options]
+  expose-devserver [options]
 
 Options:
   -h --help               Show this screen.
@@ -356,7 +356,7 @@ Example output:
 An input line with the word 'exit' will quit the streaming server.
 
 Usage:
-  pld-stream [options]
+  expose-stream [options]
 
 Options:
   -h --help                  Show this screen.

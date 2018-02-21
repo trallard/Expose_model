@@ -5,7 +5,7 @@ Flask object.
 from .util import initialize_config
 from .server import app
 
-# Initialization is needed to obtain same behavior of pld-devserver
+# Initialization is needed to obtain same behavior of expose-devserver
 # and other WSGI servers (e.g., gunicorn). Without this initialization
 # call, initialization would be delayed until the first request arrives
 initialize_config()

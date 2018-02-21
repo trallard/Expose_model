@@ -297,7 +297,7 @@ def version_cmd(argv=sys.argv[1:]):  # pragma: no cover
 Print the version number of expose.
 
 Usage:
-  pld-version [options]
+  expose-version [options]
 
 Options:
   -h --help                Show this screen.
@@ -319,7 +319,7 @@ def upgrade_cmd(argv=sys.argv[1:]):  # pragma: no cover
 Upgrade the database to the latest version.
 
 Usage:
-  pld-ugprade [options]
+  expose-ugprade [options]
 
 Options:
   --from=<v>               Upgrade from a specific version, overriding

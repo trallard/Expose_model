@@ -1,4 +1,4 @@
-#model_expose
+# model_expose
 
 this package allows to set up analytics services as web apps.
 
@@ -93,4 +93,4 @@ $ conda env create -f expose.yml
 Activate the environment `source activate expose`
 Once there you need to install the package like so `pip install .`
 
-You'll then need to set a 
+You'll then need to set a

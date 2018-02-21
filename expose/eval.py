@@ -44,7 +44,7 @@ configuration to load a test dataset to test the accuracy of a trained
 model with.
 
 Usage:
-  pld-test [options]
+  expose-test [options]
 
 Options:
   -h --help                  Show this screen.
@@ -75,7 +75,7 @@ Uses the 'model_persister' from the configuration to display a list of
 models and their metadata.
 
 Usage:
-  pld-list [options]
+  expose-list [options]
 
 Options:
   -h --help                  Show this screen.
