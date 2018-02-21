@@ -1,0 +1,20 @@
+name: expose
+dependencies:
+  - python = 3.6
+  - docopt
+  - flask
+  - joblib
+  # julia==0.4.5
+  - MarkupSafe
+  - numpy
+  - pandas
+  - psutil
+  - python-dateutil
+  - pytz
+  - scikit-learn
+  - scipy
+  - six
+  - sqlalchemy
+  - ujson
+  - Werkzeug
+  - rpy2
