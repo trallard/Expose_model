@@ -18,3 +18,4 @@ dependencies:
   - ujson
   - Werkzeug
   - rpy2
+  - pip
