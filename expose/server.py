@@ -28,7 +28,7 @@ def make_ujson_response(obj, status_code=200):
     """Encodes the given *obj* to json and wraps it in a response.
 
     :return:
-      A Flask response.
+      A HTTP response.
     """
     json_encoded = ujson.encode(obj, ensure_ascii=False, double_precision=-1)
     resp = make_response(json_encoded)

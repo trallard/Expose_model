@@ -1,5 +1,5 @@
-"""This module provides caching utilities in order to provide
-faster access to data which is needed repeatedly.
+"""This module provides caching utilities for faster access to
+data which will be needed repeatedly.
 
 The disk cache class
 (:class:`diskcache) is primarily used during development when

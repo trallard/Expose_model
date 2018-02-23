@@ -37,7 +37,7 @@ setup(name = 'model_expose',
       author_email='tania.sanchezmonroy@gmail.com',
       license = 'MIT',
       classifiers=[
-          'Development Status :: 4 - Beta',
+          'Development Status :: 2 - Pre-Alpha',
           'Intended Audience :: Developers',
           'License :: OSI Approved :: MIT License',
           'Programming Language :: Python :: 3'

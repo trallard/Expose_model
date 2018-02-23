@@ -1,13 +1,14 @@
 # model_expose
+The model expose package allows to set up analytics services as web apps.
 
-this package allows to set up analytics services as web apps.
-
-As this is it provides generic implementations for models in data science such
+As this is it provides generic implementations for models in data science/analytics such
 as:
 data set loading, model training with parameter search, web services, and
 persistence capabilities.
 
-The already developed components are tied to your components via a config file:
+This is intended to be able to serve as a 'generic' package allowing to
+connect the package modules with specific models and data sets via a
+[config.py file](./sample_models/python/config.py)
 
 ```python
 {
@@ -86,11 +87,17 @@ The already developed components are tied to your components via a config file:
 ```
 
 ### Usage
-Clone the repository and from `Expose_test` run the following command on the terminal
+**Note**: since the package is still in alpha stage it has not been
+made available on PyPi or similar. Thus installation will have to be
+made from source.
+
+The first step to use the app is to create an anaconda environment.
+Thus assuming you have a working installation of Anaconda on your computer
+you can go to the `Expose_model` directory and create an anaconda environment from the command line
+like so:
 ```
 $ conda env create -f expose.yml
 ```
-Activate the environment `source activate expose`
-Once there you need to install the package like so `pip install .`
+After creating the environment you'll need to activate it by invoking: `source activate expose` from the shell.
 
-You'll then need to set a
+To install the package within the environment you can then do `python setup.py`
