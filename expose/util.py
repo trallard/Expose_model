@@ -1,5 +1,5 @@
-"""Number of utilities for the
-package
+#!/usr/bin/env python
+"""Number of utilities used through the various modules
 """
 
 from collections import UserDict
@@ -30,11 +30,20 @@ logger = logging.getLogger('expose')
 
 expose_CONFIG_ERROR = """
     Did you set the expose_CONFIG environment variable?
-    If you did not make sure to add it
+    If you did not make sure to add it by typing
+    export expose_CONFIG=config.py from the shell
 """
 
 
 def resolve_dotted_name(dotted_name):
+    """ Resolves the names of the modules being
+    requested
+    Args:
+        dotted_name: module name
+    Returns:
+        attr: a string corresponding  to the
+        module name
+    """
     
     if ':' in dotted_name:
         module, name = dotted_name.split(':')
@@ -56,7 +65,7 @@ def create_component(specification):
 
 
 class Config(dict):
-    """A dictionary containing the web app configuration.
+    """A dictionary containing the app configuration.
     It provides error messages in case of KeyErrors
     """
     initialized = False
@@ -73,6 +82,9 @@ _config = Config()
 
 
 def get_config(**extra):
+    """Loads the configuration given to initialize
+    the app
+    """
     if not _config.initialized:
         _config.update(extra)
         _config.initialized = True
@@ -94,6 +106,8 @@ def get_config(**extra):
 
 
 def initialize_config(**extra):
+    """Initializes the config for the app
+    """
     if _config.initialized:
         raise RuntimeError("This was previously initialised. Skipping.")
     return get_config(**extra)
@@ -139,7 +153,8 @@ def _initialize_config(config):
 
 
 def apply_kwargs(func, **kwargs):
-    """Call *func* with kwargs, but only those kwargs that it accepts.
+    """Call *func* with kwargs
+    Note this only takes the ones accepted by the function
     """
     new_kwargs = {}
     params = signature(func).parameters
@@ -227,12 +242,10 @@ class RruleThread(Thread):
     """
     def __init__(self, func, rrule, sleep_between_checks=60):
         """
-        :param callable func:
-          The function that I will call periodically.
+        Args:
+            callable func: The function that I will call periodically.
 
-        :param rrule rrule:
-
-          The :class:`dateutil.rrule.rrule` recurrence rule that
+            rrule rrule: The :class:`dateutil.rrule.rrule` recurrence rule that
           defines when I will do the calls.  See the `python-dateutil
           docs <https://labix.org/python-dateutil>`_ for details on
           how to define rrules.
@@ -241,9 +254,8 @@ class RruleThread(Thread):
           `rrule` instance, in which case I will instantiate an rrule
           using the dict contents as keyword parameters.
 
-        :param int sleep_between_checks:
-          Number of seconds to sleep before I check again if I should
-          run the function *func*.
+        sleep_between_checks: Number of seconds to sleep before
+        checking if function *func* needs to be run again.
         """
         super(RruleThread, self).__init__(daemon=True)
         if isinstance(rrule, dict):
@@ -314,7 +326,7 @@ def upgrade(model_persister, from_version=None, to_version=None):
     model_persister.upgrade(**kwargs)
 
 
-def upgrade_cmd(argv=sys.argv[1:]):  # pragma: no cover
+def upgrade_cmd(argv=sys.argv[1:]):
     """\
 Upgrade the database to the latest version.
 
@@ -344,9 +356,10 @@ class PluggableDecorator:
         self.func = func
 
         def wrapper(*args, **kwargs):
-            # The motivation here is that we want to defer loading the
-            # configuration until the function is called for the first
-            # time.
+            """Defer loading the configuration until the function is
+            called
+            """
+
             if self.wrapped is None:
                 func = self.func
                 decorators = get_config().get(

@@ -152,7 +152,7 @@ FROM $3
 # File Author / Maintainer
 MAINTAINER expose
 
-RUN pld-fit
+RUN expose-fit
 
 RUN conda install --yes gunicorn
 

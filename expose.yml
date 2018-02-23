@@ -18,4 +18,5 @@ dependencies:
   - ujson
   - Werkzeug
   - rpy2
+  - clangxx_osx-64
   - pip
