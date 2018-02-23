@@ -1,4 +1,5 @@
-"""Assorted utilties.
+"""Number of utilities for the
+package
 """
 
 from collections import UserDict
@@ -28,13 +29,13 @@ logger = logging.getLogger('expose')
 
 
 expose_CONFIG_ERROR = """
-  Maybe you forgot to set the environment variable expose_CONFIG
-  to point to your expose configuration file?  If so, please
-  refer to the manual for more details.
+    Did you set the expose_CONFIG environment variable?
+    If you did not make sure to add it
 """
 
 
 def resolve_dotted_name(dotted_name):
+    
     if ':' in dotted_name:
         module, name = dotted_name.split(':')
     else:
@@ -55,9 +56,8 @@ def create_component(specification):
 
 
 class Config(dict):
-    """A dictionary that represents the app's configuration.
-
-    Tries to send a more user friendly message in case of KeyError.
+    """A dictionary containing the web app configuration.
+    It provides error messages in case of KeyErrors
     """
     initialized = False
 
@@ -66,7 +66,7 @@ class Config(dict):
             return super(Config, self).__getitem__(name)
         except KeyError:
             raise KeyError(
-                "The required key '{}' was not found in your "
+                "The required key '{}' does not exist in "
                 "configuration. {}".format(name, expose_CONFIG_ERROR))
 
 _config = Config()
@@ -95,7 +95,7 @@ def get_config(**extra):
 
 def initialize_config(**extra):
     if _config.initialized:
-        raise RuntimeError("Configuration was already initialized")
+        raise RuntimeError("This was previously initialised. Skipping.")
     return get_config(**extra)
 
 
